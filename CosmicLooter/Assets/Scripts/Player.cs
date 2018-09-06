@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         vel.x = h * m_speed;
         rb.velocity = vel;
         //Shooting
-        if (Input.GetAxisRaw("Fire1") == 1 && m_timer > m_fireDelay)
+        if (Input.GetAxisRaw("Fire1") == 1 && m_timer >= m_fireDelay)
         {
             m_timer = 0.0f;
             //fire bullet
