@@ -7,12 +7,6 @@ public class PlayerBullet : MonoBehaviour
     public Player m_creator;
     public Vector2 m_speed;
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -21,13 +15,17 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag.Equals("Border"))
+        if (collision.CompareTag("Border"))
         {
             m_creator.DestroyBullet(gameObject);
         }
-        if (collision.tag.Equals("Enemy"))
+        else if (collision.CompareTag("Enemy"))
         {
             //destroy enemy
+            m_creator.DestroyBullet(gameObject);
+        }
+        else if (collision.CompareTag("Barrier"))
+        {
             m_creator.DestroyBullet(gameObject);
         }
     }

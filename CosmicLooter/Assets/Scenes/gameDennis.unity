@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 694898499}
   - component: {fileID: 694898498}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: BorderRoof
   m_TagString: Border
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,6 +506,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &760861775
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280188681068896, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: dd51dd29e2452644f857a36c8760dc28, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &860748233
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +710,7 @@ GameObject:
   - component: {fileID: 1237286956}
   - component: {fileID: 1237286957}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BorderFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7266c14be5eec3446aa0bc37f2fd85b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 1878977506}
   score: {fileID: 0}
   hiScore: {fileID: 0}
   lives: []
@@ -1210,7 +1252,12 @@ Prefab:
     - target: {fileID: 114363122723853358, guid: 16a076d6ddb553d45b441a7ddb9d190f,
         type: 2}
       propertyPath: m_fireDelay
-      value: 0.2
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114363122723853358, guid: 16a076d6ddb553d45b441a7ddb9d190f,
+        type: 2}
+      propertyPath: m_poolAmount
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
