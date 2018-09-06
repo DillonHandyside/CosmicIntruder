@@ -8,6 +8,8 @@ TagManager:
   - Border
   - Barrier
   - Enemy
+  - LeftTrigger
+  - RightTrigger
   layers:
   - Default
   - TransparentFX
