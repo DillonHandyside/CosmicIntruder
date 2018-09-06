@@ -1,7 +1,19 @@
 fileFormatVersion: 2
+<<<<<<< .mine
+guid: 25dcc567fbcb7344da04269792c633c9
+||||||| .r6
+guid: a4bfc8ba253a427408f88c22f99bbb62
+=======
 guid: 620b83b749f68c649af5dfb46754e7f6
+>>>>>>> .r9
 folderAsset: yes
+<<<<<<< .mine
+timeCreated: 1536196298
+||||||| .r6
+timeCreated: 1536196175
+=======
 timeCreated: 1536195582
+>>>>>>> .r9
 licenseType: Free
 DefaultImporter:
   externalObjects: {}
