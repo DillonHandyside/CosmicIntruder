@@ -5,19 +5,19 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public Player m_creator;
+    public Vector2 m_speed;
 
-    public int m_power;
 	// Use this for initialization
 	void Start ()
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    private void FixedUpdate()
     {
-		
-	}
+        GetComponent<Rigidbody2D>().velocity = m_speed;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +27,7 @@ public class PlayerBullet : MonoBehaviour
         }
         if (collision.tag.Equals("Enemy"))
         {
-            //Deal damage90
+            //destroy enemy
             m_creator.DestroyBullet(gameObject);
         }
     }

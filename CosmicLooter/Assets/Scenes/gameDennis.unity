@@ -1331,8 +1331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speed: 10
   m_fireDelay: 1
-  m_bulletSpeed: 10
-  m_bulletPower: 100
+  m_bulletSpeed: 20
+  m_bulletOffset: {x: 0, y: 0.5}
   m_scoreManager: {fileID: 1878977505}
   m_bullet: {fileID: 1473664032717910, guid: 51d0a00c2be41524a9fa004559bc2c24, type: 2}
   m_poolAmount: 5

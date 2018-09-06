@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     private float m_timer = 0.0f;
 
     public float m_bulletSpeed = 10.0f;
-    public int m_bulletPower = 100;
+
+    public Vector2 m_bulletOffset;
 
     private Rigidbody2D rb;
 
@@ -66,8 +67,10 @@ public class Player : MonoBehaviour
         GameObject top = m_poolReady.Pop();
         Rigidbody2D topRigid = top.GetComponent<Rigidbody2D>();
 
-        top.transform.position = transform.position;
+        top.transform.position = transform.position + new Vector3(m_bulletOffset.x, m_bulletOffset.y);
         topRigid.velocity = new Vector2(_x, _y);
+
+        top.GetComponent<PlayerBullet>().m_speed = new Vector2(_x, _y);
 
         top.SetActive(true);
     }
