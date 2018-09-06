@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778160634362212}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.57, z: 0.000000043711}
+  m_LocalPosition: {x: 0, y: 0, z: 0.27}
   m_LocalScale: {x: 2.789508, y: 0.7092203, z: 0.21194308}
   m_Children: []
   m_Father: {fileID: 0}
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 40fb5edf1cb6b674aa1451eba1e90367, type: 3}
+  - {fileID: 2100000, guid: 2ff25f52b37f9f14e93b3ee103f92934, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778160634362212}
-  m_Mesh: {fileID: 4300000, guid: 40fb5edf1cb6b674aa1451eba1e90367, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 2ff25f52b37f9f14e93b3ee103f92934, type: 3}
 --- !u!50 &50040800448477618
 Rigidbody2D:
   serializedVersion: 4
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 10
-  m_fireDelay: 1
+  m_fireDelay: 0.2
   m_bulletSpeed: 10
-  m_bulletOffset: {x: 0, y: 0}
+  m_bulletOffset: {x: 0, y: 1}
   m_scoreManager: {fileID: 0}
   m_bullet: {fileID: 1473664032717910, guid: 51d0a00c2be41524a9fa004559bc2c24, type: 2}
-  m_poolAmount: 5
+  m_poolAmount: 10
