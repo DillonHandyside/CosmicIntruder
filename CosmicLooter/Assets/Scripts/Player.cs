@@ -76,9 +76,12 @@ public class Player : MonoBehaviour
 
     public void DestroyBullet(GameObject _bullet)
     {
-        _bullet.SetActive(false);
-        _bullet.transform.position = new Vector3(-999.0f, -999.0f);
+        if (_bullet.activeSelf)
+        {
+            _bullet.SetActive(false);
+            _bullet.transform.position = new Vector3(-999.0f, -999.0f);
 
-        m_poolReady.Push(_bullet);
+            m_poolReady.Push(_bullet);
+        }
     }
 }
