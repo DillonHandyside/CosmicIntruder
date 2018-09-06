@@ -54,7 +54,6 @@ public class Player : MonoBehaviour
         {
             m_timer = 0.0f;
             //fire bullet
-            Debug.Log("pew");
             Fire(0.0f, m_bulletSpeed);
         }
 
@@ -78,6 +77,7 @@ public class Player : MonoBehaviour
     public void DestroyBullet(GameObject _bullet)
     {
         _bullet.SetActive(false);
+        _bullet.transform.position = new Vector3(-999.0f, -999.0f);
 
         m_poolReady.Push(_bullet);
     }

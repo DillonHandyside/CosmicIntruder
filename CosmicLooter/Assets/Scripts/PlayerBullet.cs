@@ -27,7 +27,6 @@ public class PlayerBullet : MonoBehaviour
         else if (collision.CompareTag("Barrier"))
         {
             m_creator.DestroyBullet(gameObject);
-            transform.position = Vector3.zero;
         }
     }
 }
