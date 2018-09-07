@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - LeftTrigger
   - RightTrigger
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
