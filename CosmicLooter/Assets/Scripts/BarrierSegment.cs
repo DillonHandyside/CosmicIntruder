@@ -10,6 +10,10 @@ public class BarrierSegment : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        else if (collision.CompareTag("Enemy"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }
