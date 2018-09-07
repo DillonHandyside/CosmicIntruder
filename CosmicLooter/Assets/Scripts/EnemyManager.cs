@@ -125,19 +125,18 @@ public class EnemyManager : MonoBehaviour
 		{
 			if(enemy.GetComponent<Enemy>().GetAlive())
 			{
-				Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
 				Vector3 pos = enemy.transform.position;
 
 				if(m_bMovingRight)
 				{
 					pos.x += m_fMovementStep;
-					rb.position = pos;
+					enemy.transform.position = pos;
 				}
 
 				else
 				{
 					pos.x -= m_fMovementStep;
-					rb.position = pos;
+					enemy.transform.position = pos;
 				}
 			}
 		}
@@ -145,28 +144,26 @@ public class EnemyManager : MonoBehaviour
 
 	private void MoveEnemiesDown(bool leftTriggerHit)
 	{
-		if(!m_bHitLeftTrigger || !m_bHitRightTrigger)
+		foreach (GameObject enemy in m_enemies)
 		{
-			foreach(GameObject enemy in m_enemies)
-			{
-				Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-				Vector3 pos = enemy.transform.position;
-				pos.y -= m_fDownwardsStep;
-				rb.position = pos;
-			}
+			Vector3 pos = enemy.transform.position;
+			pos.y -= m_fDownwardsStep;
+			enemy.transform.position = pos;
 		}
 	}
 
 	public void SwitchDirections(bool leftTriggerHit)
 	{
 		m_bMovingRight = leftTriggerHit;
-		if (leftTriggerHit)
+		if (leftTriggerHit && !m_bHitLeftTrigger)
 		{
+			m_bHitLeftTrigger = true;
 			m_bHitRightTrigger = false;
 			MoveEnemiesDown(leftTriggerHit);
 		}
-		else
+		else if (!leftTriggerHit && !m_bHitRightTrigger)
 		{
+			m_bHitRightTrigger = true;
 			m_bHitLeftTrigger = false;
 			MoveEnemiesDown(leftTriggerHit);
 		}

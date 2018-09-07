@@ -869,13 +869,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_nEnemyColumns: 10
   m_nEnemyRows: 5
-  m_v2EnemySpacing: {x: 3, y: 1.5}
+  m_v2EnemySpacing: {x: 3, y: 1.75}
   m_enemyPrefab: {fileID: 1331610457513586, guid: 4fc1a9861d685b74d84701bf41293c38,
     type: 2}
-  m_fInitialMovementTimer: 3
+  m_fInitialMovementTimer: 0.1
   m_fMinimumMovementTimer: 0.01
   m_fMovementStep: 1
   m_fDownwardsStep: 0.5
+  m_bulletPrefab: {fileID: 0}
+  m_iPoolAmount: 0
 --- !u!4 &896358050
 Transform:
   m_ObjectHideFlags: 0
