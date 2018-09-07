@@ -127,6 +127,14 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
+    /// increments the number of enemies killed by one
+    /// </summary>
+    static public void AddEnemyKill()
+    {
+        enemyKills++;
+    }
+
+    /// <summary>
     /// sets the tally of enemies destroyed to zero
     /// </summary>
     static public void ResetEnemyKills()
@@ -141,6 +149,14 @@ public class ScoreManager : MonoBehaviour
     static public int GetEnemyKills()
     {
         return enemyKills;
+    }
+
+    /// <summary>
+    /// increments the number of enemies killed by one
+    /// </summary>
+    static public void AddMothershipKill()
+    {
+        mothershipKills++;
     }
 
     /// <summary>
