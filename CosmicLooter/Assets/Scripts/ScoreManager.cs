@@ -12,16 +12,18 @@ struct HiScore
 
 public class ScoreManager : MonoBehaviour
 {
-    static List<HiScore> hiScoreList; // list of highest scores
+    //static List<HiScore> hiScoreList; // list of highest scores
     static int hiScore; // the absolute highest score
     static int score; // player's current score
     static int lives; // player's current lives
 
+    // kill counts
     static int enemyKills; // number of enemies destroyed
     static int mothershipKills; // number of motherships destroyed
 
-    static int totalShotsMissed;
-    static int totalShotsFired;
+    // accuracy
+    static int totalShotsMissed; // number of shots that hit the boundaries
+    static int totalShotsFired; // number of shots over player lifetime
 
 	// Use this for initialization
 	void Awake ()
@@ -52,16 +54,16 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     /// <param name="name"></param>
     /// <param name="newHiScore"></param>
-    static public void AddHiScore(string name, int newHiScore)
-    {
-        HiScore temp = new HiScore
-        {
-            name = name,
-            hiScore = newHiScore
-        };
+    //static public void AddHiScore(string name, int newHiScore)
+    //{
+    //    HiScore temp = new HiScore
+    //    {
+    //        name = name,
+    //        hiScore = newHiScore
+    //    };
 
-        hiScoreList.Add(temp);
-    }
+    //    hiScoreList.Add(temp);
+    //}
 
     //static public List<HiScore> GetTop10HiScores()
     //{
@@ -117,8 +119,8 @@ public class ScoreManager : MonoBehaviour
     {
         lives--;
 
-        if (lives < 0) { }
-            //SceneManager.LoadScene("gameOver");
+        if (lives < 0)
+            SceneManager.LoadScene("gameOver");
     }
 
     /// <summary>
@@ -196,12 +198,22 @@ public class ScoreManager : MonoBehaviour
         totalShotsMissed++;
     }
 
+    static public int GetMissedShots()
+    {
+        return totalShotsMissed;
+    }
+
     /// <summary>
     /// increments the total number of fired shots by one
     /// </summary>
     static public void AddFiredShot()
     {
         totalShotsFired++;
+    }
+
+    static public int GetFiredShots()
+    {
+        return totalShotsFired;
     }
 
     /// <summary>
