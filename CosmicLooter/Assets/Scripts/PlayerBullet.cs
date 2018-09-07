@@ -17,6 +17,7 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collision.CompareTag("Border"))
         {
+            ScoreManager.AddMissedShot(); // total missed shots += 1
             m_creator.DestroyBullet(gameObject);
         }
         else if (collision.CompareTag("Enemy"))

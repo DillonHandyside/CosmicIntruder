@@ -20,19 +20,31 @@ public class ScoreManager : MonoBehaviour
     static int enemyKills; // number of enemies destroyed
     static int mothershipKills; // number of motherships destroyed
 
+    static int totalShotsMissed;
+    static int totalShotsFired;
+
 	// Use this for initialization
 	void Awake ()
     {
-        ResetScore();
-        ResetLives();
-        ResetEnemyKills();
-        ResetMothershipKills();
+        ResetAll();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         DebugKeys();
+    }
+
+    /// <summary>
+    /// helper function which calls all reset functions in score manager
+    /// </summary>
+    private void ResetAll()
+    {
+        ResetScore();
+        ResetLives();
+        ResetEnemyKills();
+        ResetMothershipKills();
+        ResetAccuracy();
     }
 
     /// <summary>
@@ -84,7 +96,7 @@ public class ScoreManager : MonoBehaviour
     /// <summary>
     /// sets the player's score to zero
     /// </summary>
-    static public void ResetScore()
+    private void ResetScore()
     {
         score = 0;
     }
@@ -105,14 +117,14 @@ public class ScoreManager : MonoBehaviour
     {
         lives--;
 
-        if (lives < 0)
-            SceneManager.LoadScene("gameOver");
+        if (lives < 0) { }
+            //SceneManager.LoadScene("gameOver");
     }
 
     /// <summary>
     /// sets the player's current lives to three
     /// </summary>
-    static public void ResetLives()
+    private void ResetLives()
     {
         lives = 3;
     }
@@ -137,7 +149,7 @@ public class ScoreManager : MonoBehaviour
     /// <summary>
     /// sets the tally of enemies destroyed to zero
     /// </summary>
-    static public void ResetEnemyKills()
+    private void ResetEnemyKills()
     {
         enemyKills = 0;
     }
@@ -162,7 +174,7 @@ public class ScoreManager : MonoBehaviour
     /// <summary>
     /// sets the tally of motherships destroyed to zero
     /// </summary>
-    static public void ResetMothershipKills()
+    private void ResetMothershipKills()
     {
         mothershipKills = 0;
     }
@@ -174,6 +186,31 @@ public class ScoreManager : MonoBehaviour
     static public int GetMothershipKills()
     {
         return mothershipKills;
+    }
+
+    /// <summary>
+    /// increments the number of missed shots by one
+    /// </summary>
+    static public void AddMissedShot()
+    {
+        totalShotsMissed++;
+    }
+
+    /// <summary>
+    /// increments the total number of fired shots by one
+    /// </summary>
+    static public void AddFiredShot()
+    {
+        totalShotsFired++;
+    }
+
+    /// <summary>
+    /// sets the number of shots fired and missed to zero
+    /// </summary>
+    private void ResetAccuracy()
+    {
+        totalShotsMissed = 0;
+        totalShotsFired = 0;
     }
 
     /// <summary>

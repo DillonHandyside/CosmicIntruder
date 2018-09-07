@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    public GameObject m_scoreManager;
-
     //Player internal object pool
     public GameObject m_bullet;
     public int m_poolAmount;
@@ -72,6 +70,9 @@ public class Player : MonoBehaviour
         top.GetComponent<PlayerBullet>().m_speed = new Vector2(_x, _y);
 
         top.SetActive(true);
+
+        // total shots fired += 1
+        ScoreManager.AddFiredShot();
     }
 
     public void DestroyBullet(GameObject _bullet)
