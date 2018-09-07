@@ -40,9 +40,21 @@ public class EnemyManager : MonoBehaviour
 	private bool m_bHitRightTrigger = false;
 	private bool m_bHitLeftTrigger = false;
 
+    //Bullet pool for enemies
+    public GameObject m_bulletPrefab;
+    public int m_iPoolAmount;
+    private Stack<GameObject> m_readyBullets;
+
 	// Use this for initialization
 	void Awake()
 	{
+        //Initialise stack of bullets
+        for (int i = 0; i < m_iPoolAmount; ++i)
+        {
+            GameObject o = Instantiate<GameObject>(m_bulletPrefab);
+            m_readyBullets.Push(o);
+            o.SetActive(false);
+        }
 		//Initialise array
 		m_enemies = new GameObject[m_nEnemyColumns * m_nEnemyRows];
 
@@ -153,4 +165,21 @@ public class EnemyManager : MonoBehaviour
 			MoveEnemiesDown(leftTriggerHit);
 		}
 	}
+
+    //Shooting
+    public void Shoot(Vector2 _position, Vector2 _fire_vector)
+    {
+        GameObject top = m_readyBullets.Pop();
+        top.GetComponent<EnemyBullet>().m_speed = _fire_vector;
+        top.transform.position = new Vector2(_position.x, _position.y);
+
+        top.SetActive(true);
+    }
+
+    //Bullet destroy event
+    public void DestroyBullet(GameObject _bullet)
+    {
+        _bullet.SetActive(false);
+        m_readyBullets.Push(_bullet);
+    }
 }
