@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-
     public Text score;
     public Text hiScore;
     public Image[] lives;
@@ -19,14 +17,14 @@ public class UI : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        score.text = scoreManager.score.ToString();
-        hiScore.text = scoreManager.hiScore.ToString();
+        score.text = ScoreManager.GetScore().ToString();
+        hiScore.text = ScoreManager.GetHiScore().ToString();
 
         int i = 0;
 
         foreach (Image life in lives)
         {
-            if (i < scoreManager.lives)
+            if (i < ScoreManager.GetLives())
                 life.enabled = true;
             else
                 life.enabled = false;

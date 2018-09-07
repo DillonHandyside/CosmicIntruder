@@ -1,68 +1,168 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+struct HiScore
+{
+    public string name;
+    public int hiScore;
+}
 
 public class ScoreManager : MonoBehaviour
 {
-    public long score;
-    public long hiScore;
-    public int lives;
+    static List<HiScore> hiScoreList; // list of highest scores
+    static int hiScore; // the absolute highest score
+    static int score; // player's current score
+    static int lives; // player's current lives
+
+    static int enemyKills; // number of enemies destroyed
+    static int mothershipKills; // number of motherships destroyed
 
 	// Use this for initialization
 	void Awake ()
     {
         ResetScore();
         ResetLives();
+        ResetEnemyKills();
+        ResetMothershipKills();
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (lives <= 0) { }
-            //gameover;
-
-        if (score > hiScore)
-            hiScore = score;
-
         DebugKeys();
-	}
+    }
 
     /// <summary>
-    /// Decrements the player's lives
+    /// 
     /// </summary>
-    void LoseLife()
+    /// <param name="name"></param>
+    /// <param name="newHiScore"></param>
+    static public void AddHiScore(string name, int newHiScore)
     {
-        lives--;
+        HiScore temp = new HiScore
+        {
+            name = name,
+            hiScore = newHiScore
+        };
 
-        if (lives < 0)
-            lives = 0;
+        hiScoreList.Add(temp);
+    }
+
+    //static public List<HiScore> GetTop10HiScores()
+    //{
+    //    hiScoreList.Sort(delegate (HiScore a, HiScore b) { return (a.hiScore).CompareTo(b.hiScore); });
+
+    //    return hiScoreList;
+    //}
+
+    /// <summary>
+    /// returns the game's hi-score
+    /// </summary>
+    /// <returns>hi-score -  the highest score achieved before</returns>
+    static public int GetHiScore()
+    {
+        return hiScore;
     }
 
     /// <summary>
     /// add the specified value to the player's score
     /// </summary>
     /// <param name="value">the amount of points to add</param>
-    void AddScore(long value)
+    static public void AddScore(int value)
     {
         score += value;
+
+        if (score > hiScore)
+        {
+            hiScore = score;
+        }
     }
 
     /// <summary>
     /// sets the player's score to zero
     /// </summary>
-    void ResetScore()
+    static public void ResetScore()
     {
         score = 0;
     }
 
     /// <summary>
+    /// return the player's current score
+    /// </summary>
+    /// <returns>score - player's current score</returns>
+    static public int GetScore()
+    {
+        return score;
+    }
+
+    /// <summary>
+    /// Decrements the player's lives and handles game over transition
+    /// </summary>
+    static public void LoseLife()
+    {
+        lives--;
+
+        if (lives < 0)
+            SceneManager.LoadScene("gameOver");
+    }
+
+    /// <summary>
     /// sets the player's current lives to three
     /// </summary>
-    void ResetLives()
+    static public void ResetLives()
     {
         lives = 3;
     }
 
+    /// <summary>
+    /// returns the number of remaining player lives
+    /// </summary>
+    /// <returns>lives - player's current lives</returns>
+    static public int GetLives()
+    {
+        return lives;
+    }
+
+    /// <summary>
+    /// sets the tally of enemies destroyed to zero
+    /// </summary>
+    static public void ResetEnemyKills()
+    {
+        enemyKills = 0;
+    }
+
+    /// <summary>
+    /// returns the number of enemies destroyed
+    /// </summary>
+    /// <returns>enemyKills - number of enemies destroyed this game</returns>
+    static public int GetEnemyKills()
+    {
+        return enemyKills;
+    }
+
+    /// <summary>
+    /// sets the tally of motherships destroyed to zero
+    /// </summary>
+    static public void ResetMothershipKills()
+    {
+        mothershipKills = 0;
+    }
+
+    /// <summary>
+    /// returns the number of motherships destroyed
+    /// </summary>
+    /// <returns>mothershipKills - number of motherships destroyed this game</returns>
+    static public int GetMothershipKills()
+    {
+        return mothershipKills;
+    }
+
+    /// <summary>
+    /// function used to test and debug score manager
+    /// </summary>
     void DebugKeys()
     {
         if (Input.GetKeyDown(KeyCode.Keypad8))
