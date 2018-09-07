@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
 
     private void Fire(float _x, float _y)
     {
+        if (m_poolReady.Count == 0)
+            return;
+
         GameObject top = m_poolReady.Pop();
         Rigidbody2D topRigid = top.GetComponent<Rigidbody2D>();
 
@@ -83,6 +86,19 @@ public class Player : MonoBehaviour
             _bullet.transform.position = new Vector3(-999.0f, -999.0f);
 
             m_poolReady.Push(_bullet);
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyBullet"))
+        {
+            ScoreManager.LoseLife();
+        }
+
+        if (collision.CompareTag("Enemy"))
+        {
+            ScoreManager.InstantDeath();
         }
     }
 }

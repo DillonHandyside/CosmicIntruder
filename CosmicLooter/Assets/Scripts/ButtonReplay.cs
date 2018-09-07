@@ -17,7 +17,6 @@ public class ButtonReplay : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Test");
         SceneManager.LoadScene("game");
     }
 }

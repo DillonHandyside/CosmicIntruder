@@ -120,7 +120,10 @@ public class ScoreManager : MonoBehaviour
         lives--;
 
         if (lives < 0)
+        {
             SceneManager.LoadScene("gameOver");
+            lives = 0;
+        }
     }
 
     /// <summary>
@@ -138,6 +141,12 @@ public class ScoreManager : MonoBehaviour
     static public int GetLives()
     {
         return lives;
+    }
+
+    static public void InstantDeath()
+    {
+        lives = 0;
+        SceneManager.LoadScene("gameOver");
     }
 
     /// <summary>

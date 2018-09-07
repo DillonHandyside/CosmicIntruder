@@ -9,6 +9,7 @@ public class GameOverUI : MonoBehaviour
     public float accuracyMultiplier = 0.1f; // the scale factor of accuracy multiplier
     public float enemyKillMultiplier = 0.1f; // the scale factor of enemy multiplier
     public float mothershipKillMultiplier = 0.5f; // the scale factor of mothership multiplier
+    public float livesRemainingMultiplier = 0.1f; // the scale factor of lives remaining multiplier
     private float multiplierValue = 1.0f; // the final multiplier, should not fall below 1.0f
 
     // UI text fields to modify
@@ -16,6 +17,7 @@ public class GameOverUI : MonoBehaviour
     public Text accuracy;
     public Text enemiesDestroyed;
     public Text mothershipsDestroyed;
+    public Text livesRemaining;
     public Text multiplier;
     public Text totalScore;
 
@@ -39,6 +41,7 @@ public class GameOverUI : MonoBehaviour
         PrintEnemiesDestroyed();
         PrintMothershipsDestroyed();
         PrintAccuracy();
+        PrintLivesRemaining();
         PrintMultiplier();
         PrintTotalScore();
     }
@@ -78,6 +81,17 @@ public class GameOverUI : MonoBehaviour
 
         // add kills to multiplier
         multiplierValue += mothershipKills * mothershipKillMultiplier;
+    }
+
+    void PrintLivesRemaining()
+    {
+        int numberOfLivesRemaining = ScoreManager.GetLives();
+
+        // print
+        livesRemaining.text = numberOfLivesRemaining.ToString();
+
+        // add kills to multiplier
+        multiplierValue += numberOfLivesRemaining * livesRemainingMultiplier;
     }
 
     /// <summary>
