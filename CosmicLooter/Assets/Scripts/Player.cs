@@ -42,11 +42,24 @@ public class Player : MonoBehaviour
 	void Update ()
     {
         //Horizontal Movement
-        float h = Input.GetAxisRaw("Horizontal");
-
+        RuntimePlatform currentPlatform = Application.platform;
         Vector2 vel = rb.velocity;
-        vel.x = h * m_speed;
+
+        // handle movement differently depending on platform
+        switch (currentPlatform)
+        {
+            case RuntimePlatform.Android:
+                // android phone tilt movement
+                vel.x = Input.acceleration.x * m_speed;
+                break;
+            default:
+                // joystick, d-pad, left & right, A & D
+                vel.x = Input.GetAxisRaw("Horizontal") * m_speed; 
+                break;
+        }
+
         rb.velocity = vel;
+
         //Shooting
         if (Input.GetAxisRaw("Fire1") == 1 && m_timer >= m_fireDelay)
         {
@@ -89,16 +102,22 @@ public class Player : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// handles the deduction of lives when objects collide with the player
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // if player collides with an enemies bullet...
         if (collision.CompareTag("EnemyBullet"))
         {
-            ScoreManager.LoseLife();
+            ScoreManager.LoseLife(); // lose one life
         }
 
+        // if player collides with an enemy...
         if (collision.CompareTag("Enemy"))
         {
-            ScoreManager.InstantDeath();
+            ScoreManager.InstantDeath(); // instant death
         }
     }
 }

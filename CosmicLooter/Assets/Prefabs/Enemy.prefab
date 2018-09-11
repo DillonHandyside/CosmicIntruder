@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23129251633296662}
   - component: {fileID: 50772185040298498}
   - component: {fileID: 60266862338385640}
-  - component: {fileID: 114199498894666928}
+  - component: {fileID: 114333775834524022}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 11085179a60a4284385a83291700a555, type: 2}
+  - {fileID: 2100000, guid: 5813e895f89aba048bc4d40cbd7dc0c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,7 +137,7 @@ PolygonCollider2D:
       - {x: 2.0041037, y: -3.2620335}
       - {x: 4.451929, y: -2.419818}
       - {x: 4.4451766, y: 0.019033432}
---- !u!114 &114199498894666928
+--- !u!114 &114333775834524022
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1331610457513586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ae791cacc348b4418b187e4b18ee8e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e67c3bca506b38448dd6fe372919119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_enemyManager: {fileID: 0}

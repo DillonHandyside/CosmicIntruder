@@ -762,7 +762,7 @@ Transform:
   m_LocalScale: {x: 19.812641, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1001 &819063158
 Prefab:
@@ -801,7 +801,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4659214115380226, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1778160634362212, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
@@ -1189,7 +1193,7 @@ Transform:
   m_LocalScale: {x: 19.812641, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1413074615
 GameObject:
@@ -1473,19 +1477,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1651829742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8388f6dc7fbd7be43b5026cab90a4ac5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f074ab599f13984793e7514f76833c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_nEnemyColumns: 10
   m_nEnemyRows: 5
   m_v2EnemySpacing: {x: 3, y: 1.75}
-  m_enemyPrefab: {fileID: 1331610457513586, guid: 3c8f9c34208136642bdd48a159ecd85e,
+  m_enemyPrefab: {fileID: 1331610457513586, guid: b42fc610a6fa93a408b3a0d826322498,
     type: 2}
   m_fInitialMovementTimer: 2
   m_fMinimumMovementTimer: 0.01
   m_fMovementStep: 1
   m_fDownwardsStep: 0.5
-  m_bulletPrefab: {fileID: 0}
+  m_bulletPrefab: {fileID: 100000, guid: 20772ad433a56af469cf29c79773aaaf, type: 3}
   m_iPoolAmount: 0
 --- !u!4 &1651829744
 Transform:
@@ -1498,7 +1502,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1767821865
 GameObject:
@@ -1724,7 +1728,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 47
-  orthographic: 0
+  orthographic: 1
   orthographic size: 11
   m_Depth: 0
   m_CullingMask:
@@ -1801,5 +1805,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
