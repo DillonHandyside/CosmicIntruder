@@ -1,2 +1,2 @@
-# CosmicLooter
-Group projects by Drake, Dennis &amp; Dillon
+# CosmicIntruder
+Group project by Drake, Dennis &amp; Dillon
