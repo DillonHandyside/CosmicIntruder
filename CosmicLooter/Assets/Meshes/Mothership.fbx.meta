@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 86042e7ddd3ec3e46a9a4281384aa3de
-timeCreated: 1536283269
+guid: 57bf3bfe1411cd249ac877b0b21a85a4
+timeCreated: 1536795930
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -10,7 +10,7 @@ ModelImporter:
     2100000: lambert1
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pSphere3
+    4300000: pCube1
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -42,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.2
     meshCompression: 0
     addColliders: 0
     importVisibility: 1

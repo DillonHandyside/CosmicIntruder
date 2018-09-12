@@ -6,9 +6,6 @@ public class Mothership : MonoBehaviour
 {
     public float m_speed;
 
-    public float m_rotationRate;
-    private float m_rotation;
-
     public int m_score = 0;
 
     public bool m_movingRight;
@@ -17,12 +14,6 @@ public class Mothership : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        m_rotation += m_rotationRate * Time.deltaTime;
-
-        Quaternion quat = new Quaternion();
-        quat.eulerAngles = new Vector3(0.0f, m_rotation, 0.0f);
-
-        transform.rotation = quat;
         //Kill the mothership if it leaves the screen
         if (m_movingRight)
         {

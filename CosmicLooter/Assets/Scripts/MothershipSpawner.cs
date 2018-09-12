@@ -14,8 +14,6 @@ public class MothershipSpawner : MonoBehaviour
 
     public float m_MothershipSpeed = 5.0f;
 
-    public float m_MothershipRotationRate = 100.0f;
-
     public int m_MothershipScore = 500;
 
     private float m_timer;
@@ -28,6 +26,7 @@ public class MothershipSpawner : MonoBehaviour
         m_timer = m_rate + m_rateVariance;
 
         m_mothership = Instantiate<GameObject>(m_mothershipPrefab);
+        m_mothership.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,7 +47,6 @@ public class MothershipSpawner : MonoBehaviour
             Mothership motherScript = m_mothership.GetComponent<Mothership>();
 
             motherScript.m_speed = -m_MothershipSpeed;
-            motherScript.m_rotationRate = m_MothershipRotationRate;
             motherScript.m_score = m_MothershipScore;
             motherScript.m_suicideDistance = m_spawnX * -1.0f;
             motherScript.m_movingRight = false;

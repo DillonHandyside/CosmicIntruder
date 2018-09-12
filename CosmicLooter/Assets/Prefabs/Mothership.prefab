@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248616658875324}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.3, y: 19.48, z: 0}
+  m_LocalPosition: {x: -7.9100685, y: 19.114689, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 86042e7ddd3ec3e46a9a4281384aa3de, type: 3}
+  - {fileID: 2100000, guid: 57bf3bfe1411cd249ac877b0b21a85a4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,7 +83,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248616658875324}
-  m_Mesh: {fileID: 4300000, guid: 86042e7ddd3ec3e46a9a4281384aa3de, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 57bf3bfe1411cd249ac877b0b21a85a4, type: 3}
 --- !u!61 &61082101733760300
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -107,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.88, y: 1.27}
+  m_Size: {x: 3.01, y: 0.98}
   m_EdgeRadius: 0
 --- !u!114 &114730625440837112
 MonoBehaviour:
@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 5
-  m_rotationRate: 100
   m_score: 0
   m_movingRight: 0
   m_suicideDistance: 0
