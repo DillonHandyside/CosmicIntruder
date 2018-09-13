@@ -1511,7 +1511,7 @@ MonoBehaviour:
   m_fDownwardsStep: 0.5
   m_bulletPrefab: {fileID: 1620642118077148, guid: ee4c21a20616e7240b618f908c73eef0,
     type: 2}
-  m_iPoolAmount: 10
+  m_iPoolAmount: 5
 --- !u!4 &1651829744
 Transform:
   m_ObjectHideFlags: 0

@@ -49,8 +49,15 @@ public class Player : MonoBehaviour
         switch (currentPlatform)
         {
             case RuntimePlatform.Android:
-                // android phone tilt movement
-                vel.x = Input.acceleration.x * m_speed;
+                if (Input.GetJoystickNames().Length == 0)
+                {
+                    // android phone tilt movement
+                    vel.x = Input.acceleration.x * m_speed;
+                }
+                else
+                {
+                    vel.x = Input.GetAxisRaw("Horizontal") * m_speed;
+                }
                 break;
             default:
                 // joystick, d-pad, left & right, A & D
