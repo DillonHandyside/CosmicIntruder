@@ -29,6 +29,7 @@ public class ScoreManager : MonoBehaviour
 	void Awake ()
     {
         ResetAll();
+        hiScore = FileIO.Load();
 	}
 	
 	// Update is called once per frame
@@ -79,6 +80,11 @@ public class ScoreManager : MonoBehaviour
     static public int GetHiScore()
     {
         return hiScore;
+    }
+
+    static public void LoadHiScore(int newHiScore)
+    {
+        hiScore = newHiScore;
     }
 
     /// <summary>

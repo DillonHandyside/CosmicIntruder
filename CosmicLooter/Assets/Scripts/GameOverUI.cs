@@ -25,11 +25,20 @@ public class GameOverUI : MonoBehaviour
 	void Awake ()
     {
         PrintAll();
+        CheckHiScore();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+    }
+
+    void CheckHiScore()
+    {
+        int finalScore = (int)(ScoreManager.GetScore() * multiplierValue);
+
+        if (finalScore > ScoreManager.GetHiScore())
+            FileIO.Save(finalScore);
     }
 
     /// <summary>
