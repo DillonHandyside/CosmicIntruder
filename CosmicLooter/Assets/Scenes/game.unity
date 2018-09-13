@@ -807,6 +807,26 @@ Prefab:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 61166636656846930, guid: 16a076d6ddb553d45b441a7ddb9d190f,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 1.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 61166636656846930, guid: 16a076d6ddb553d45b441a7ddb9d190f,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 23457927702589936, guid: 16a076d6ddb553d45b441a7ddb9d190f,
+        type: 2}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23457927702589936, guid: 16a076d6ddb553d45b441a7ddb9d190f,
+        type: 2}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
   m_IsPrefabParent: 0
@@ -1489,8 +1509,9 @@ MonoBehaviour:
   m_fMinimumMovementTimer: 0.01
   m_fMovementStep: 1
   m_fDownwardsStep: 0.5
-  m_bulletPrefab: {fileID: 100000, guid: 20772ad433a56af469cf29c79773aaaf, type: 3}
-  m_iPoolAmount: 0
+  m_bulletPrefab: {fileID: 1620642118077148, guid: ee4c21a20616e7240b618f908c73eef0,
+    type: 2}
+  m_iPoolAmount: 10
 --- !u!4 &1651829744
 Transform:
   m_ObjectHideFlags: 0
@@ -1792,7 +1813,6 @@ MonoBehaviour:
   m_spawnHeight: 18
   m_spawnX: 30
   m_MothershipSpeed: 5
-  m_MothershipRotationRate: 100
   m_MothershipScore: 500
 --- !u!4 &2140999650
 Transform:

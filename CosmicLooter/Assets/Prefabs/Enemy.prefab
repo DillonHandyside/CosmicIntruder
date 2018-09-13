@@ -150,4 +150,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_enemyManager: {fileID: 0}
   m_nScoreValue: 100
-  m_fShootTimer: 0
+  m_fDefaultShootTimer: 3
+  m_fBulletSpeed: 3
