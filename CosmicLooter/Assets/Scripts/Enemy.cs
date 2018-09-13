@@ -8,12 +8,14 @@ public class Enemy : MonoBehaviour
 	//public GameObject m_bulletPrefab;
 
 	public int m_nScoreValue;
-	public float m_fShootTimer;
+	public float m_fDefaultShootTimer;
+	private float m_fCurrentShootTimer;
+
+	public float m_fBulletSpeed;
 
 	private float m_fTimer;
 	private bool m_bIsAlive;
 
-	private Rigidbody2D rb;
 
 
 	// Use this for initialization
@@ -22,9 +24,7 @@ public class Enemy : MonoBehaviour
 		//Set alive to true and timer to zero. 
 		m_bIsAlive = true;
 		m_fTimer = 0.0f;
-
-		//get rigidbody
-		rb = GetComponent<Rigidbody2D>();
+		m_fCurrentShootTimer = m_fDefaultShootTimer * Random.Range(0.5f, 2.0f);
 	}
 	
 	// Update is called once per frame
@@ -32,11 +32,11 @@ public class Enemy : MonoBehaviour
     {
 		m_fTimer += Time.deltaTime;
 
-		if(m_fTimer >= m_fShootTimer)
+		if(m_fTimer >= m_fCurrentShootTimer)
 		{
-			//shoot code
+			m_enemyManager.Shoot(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(0, -1 * m_fBulletSpeed));
 			m_fTimer = 0.0f;
-			//Instantiate<GameObject>(m_bulletPrefab);
+			m_fCurrentShootTimer = Random.Range(0.5f, 2.0f) * m_fDefaultShootTimer;
 		}
 	}
 
