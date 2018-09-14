@@ -51,8 +51,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1778160634362212}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -147,3 +147,9 @@ MonoBehaviour:
   m_bulletOffset: {x: 0, y: 1}
   m_bullet: {fileID: 1473664032717910, guid: 51d0a00c2be41524a9fa004559bc2c24, type: 2}
   m_poolAmount: 2
+  m_color: {r: 0.89705884, g: 0.2836289, b: 0.2836289, a: 0}
+  m_flashDuration: 0.25
+  m_flashDelay: 0.66
+  m_hitStunInvincibilityDuration: 2
+  m_hitStunFlashDuration: 0.25
+  m_hitStunFlashDelay: 0.25

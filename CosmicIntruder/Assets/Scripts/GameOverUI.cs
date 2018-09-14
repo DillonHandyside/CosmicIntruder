@@ -108,7 +108,7 @@ public class GameOverUI : MonoBehaviour
         multiplierValue += Mathf.Exp(acc) - 1;
 
         // print in "0.00%" format
-        accuracy.text = (acc * 100.0f).ToString("0.00") + "%";
+        accuracy.text = (acc * 100.0f).ToString("0") + "%";
     }
 
     /// <summary>

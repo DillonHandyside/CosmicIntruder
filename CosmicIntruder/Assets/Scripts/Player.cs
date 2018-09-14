@@ -37,6 +37,16 @@ public class Player : MonoBehaviour
     private float m_critTimer = 0.0f;
     private bool m_flash = false;
 
+    // Hit stun flash & invincibility
+    public float m_hitStunInvincibilityDuration; // duration of invincibility in seconds
+    public float m_hitStunFlashDuration; // how long the player model is hidden
+    public float m_hitStunFlashDelay; // how long until the next flash
+    
+    private float m_hitStunGlobalTimer = 0.0f;
+    private float m_hitStunTimer = 0.0f;
+    private bool m_isInvincible = false;
+    private bool m_hitStunFlash = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -97,6 +107,17 @@ public class Player : MonoBehaviour
             Fire(0.0f, m_bulletSpeed);
         }
 
+        CriticalFlash();
+        HitStunFlash();
+	}
+
+    /// <summary>
+    /// Function which evaluates whether the player is on their last life,
+    /// and if so, toggles the player material between red and default to
+    /// simulate danger
+    /// </summary>
+    private void CriticalFlash()
+    {
         //Critical health flashing
         if (m_criticalState)
         {
@@ -119,7 +140,51 @@ public class Player : MonoBehaviour
                 m_flash = false;
             }
         }
-	}
+    }
+
+    /// <summary>
+    /// Function which evaluates whether the player was just hit, and if so,
+    /// toggles the player mesh on and off to simulate hit stun flashing
+    /// </summary>
+    private void HitStunFlash()
+    {
+        // if the player is currently invincible (if player was just hit)
+        if (m_isInvincible)
+        {
+            m_hitStunTimer += Time.deltaTime; // increment hit stun global timer
+            m_hitStunGlobalTimer += Time.deltaTime; // increment hit stun timer
+            
+            if (!m_hitStunFlash && m_hitStunTimer > m_hitStunFlashDelay)
+            {
+                GetComponent<MeshRenderer>().enabled = false; // flash off
+
+                // reset timer and toggle hit stun flash 
+                m_hitStunTimer = 0.0f;
+                m_hitStunFlash = true;
+            }
+            else if (m_hitStunFlash && m_hitStunTimer > m_hitStunFlashDuration)
+            {
+                GetComponent<MeshRenderer>().enabled = true; // flash on
+
+                // reset timer and toggle hit stun flash
+                m_hitStunTimer = 0.0f;
+                m_hitStunFlash = false;
+            }
+
+            // invincibility is over
+            if (m_hitStunGlobalTimer > m_hitStunInvincibilityDuration)
+            {
+                GetComponent<MeshRenderer>().enabled = true;
+                m_hitStunGlobalTimer = 0.0f;
+                m_isInvincible = false;
+
+                //Critical health reached
+                if (ScoreManager.GetLives() == 0)
+                    m_criticalState = true;
+            }
+
+        }
+    }
 
     private void Fire(float _x, float _y)
     {
@@ -161,13 +226,12 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // if player collides with an enemies bullet...
-        if (collision.CompareTag("EnemyBullet"))
+        if (collision.CompareTag("EnemyBullet") && !m_isInvincible)
         {
             ScoreManager.LoseLife(); // lose one life
 
-            //Critical health reached
-            if (ScoreManager.GetLives() == 0)
-                m_criticalState = true;
+            // set player to invincible
+            m_isInvincible = true;
         }
 
         // if player collides with an enemy...

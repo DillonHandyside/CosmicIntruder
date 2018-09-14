@@ -803,30 +803,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 1778160634362212, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 61166636656846930, guid: 16a076d6ddb553d45b441a7ddb9d190f,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 61166636656846930, guid: 16a076d6ddb553d45b441a7ddb9d190f,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 23457927702589936, guid: 16a076d6ddb553d45b441a7ddb9d190f,
-        type: 2}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 23457927702589936, guid: 16a076d6ddb553d45b441a7ddb9d190f,
-        type: 2}
-      propertyPath: m_ReceiveShadows
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16a076d6ddb553d45b441a7ddb9d190f, type: 2}
   m_IsPrefabParent: 0
