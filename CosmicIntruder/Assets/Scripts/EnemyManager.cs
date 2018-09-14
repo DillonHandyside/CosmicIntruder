@@ -89,6 +89,7 @@ public class EnemyManager : MonoBehaviour
 
 	public void CreateEnemies()
 	{
+		//nested for loop to created enemy dimensionality
 		for(int x = 0; x < m_nEnemyColumns; x++)
 		{
 			for(int y = 0; y < m_nEnemyRows; y++)
@@ -111,9 +112,11 @@ public class EnemyManager : MonoBehaviour
 		//Decrease time it takes between movement steps
 		m_fCurrentMovementTimer = m_fMinimumMovementTimer + ((m_fInitialMovementTimer - m_fMinimumMovementTimer) * ((float)m_nEnemyCount / m_nMaxEnemies));
 
+		//call score manager to add enemy kill and add score
 		ScoreManager.AddScore(enemy.GetComponent<Enemy>().m_nScoreValue);
 		ScoreManager.AddEnemyKill();
 
+		//if no more enemies, end game
 		if(m_nEnemyCount <= 0)
 		{
 			SceneManager.LoadScene("gameOver");
@@ -122,12 +125,15 @@ public class EnemyManager : MonoBehaviour
 
 	private void MoveEnemies()
 	{
+		//go through all enemies
 		foreach (GameObject enemy in m_enemies)
 		{
+			//if enemy is alive, begin moving
 			if(enemy.GetComponent<Enemy>().GetAlive())
 			{
 				Vector3 pos = enemy.transform.position;
 
+				//check what direction enemies are moving
 				if(m_bMovingRight)
 				{
 					pos.x += m_fMovementStep;
@@ -143,8 +149,9 @@ public class EnemyManager : MonoBehaviour
 		}
 	}
 
-	private void MoveEnemiesDown(bool leftTriggerHit)
+	private void MoveEnemiesDown()
 	{
+		//go through all enemies and move them down
 		foreach (GameObject enemy in m_enemies)
 		{
 			Vector3 pos = enemy.transform.position;
@@ -155,37 +162,45 @@ public class EnemyManager : MonoBehaviour
 
 	public void SwitchDirections(bool leftTriggerHit)
 	{
+		//set the moving right variable to whatever was passed in to the function from enemy
 		m_bMovingRight = leftTriggerHit;
+		//if the left trigger has been hit for the first time since we hit the right trigger, move enemies down
 		if (leftTriggerHit && !m_bHitLeftTrigger)
 		{
 			m_bHitLeftTrigger = true;
 			m_bHitRightTrigger = false;
-			MoveEnemiesDown(leftTriggerHit);
+			MoveEnemiesDown();
 		}
+
+		//if the right trigger has been hit for the first time since we hit the left trigger, move enemies down
 		else if (!leftTriggerHit && !m_bHitRightTrigger)
 		{
 			m_bHitRightTrigger = true;
 			m_bHitLeftTrigger = false;
-			MoveEnemiesDown(leftTriggerHit);
+			MoveEnemiesDown();
 		}
 	}
 
     //Shooting
     public void Shoot(Vector2 _position, Vector2 _fire_vector)
     {
+		//check if there are any ready enemy bullets, if there are not, exit the function
 		if (m_readyBullets.Count == 0)
 			return;
 
+		//get bullet from top of object pool, set position and speed
         GameObject top = m_readyBullets.Pop();
         top.GetComponent<EnemyBullet>().m_speed = _fire_vector;
         top.transform.position = new Vector2(_position.x, _position.y);
 
+		//set object active
         top.SetActive(true);
     }
 
     //Bullet destroy event
     public void DestroyBullet(GameObject _bullet)
     {
+		//disable bullet and return to ready array
         _bullet.SetActive(false);
         m_readyBullets.Push(_bullet);
     }
