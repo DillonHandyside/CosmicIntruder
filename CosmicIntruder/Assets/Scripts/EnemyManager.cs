@@ -46,6 +46,11 @@ public class EnemyManager : MonoBehaviour
     public int m_iPoolAmount;
     private Stack<GameObject> m_readyBullets = new Stack<GameObject>();
 
+    // access to the main audio source and move/death sound effects
+    public AudioSource audioSource;
+    public AudioClip moveSFX;
+    public AudioClip deathSFX;
+
 	// Use this for initialization
 	void Awake()
 	{
@@ -112,6 +117,8 @@ public class EnemyManager : MonoBehaviour
 		//Decrease time it takes between movement steps
 		m_fCurrentMovementTimer = m_fMinimumMovementTimer + ((m_fInitialMovementTimer - m_fMinimumMovementTimer) * ((float)m_nEnemyCount / m_nMaxEnemies));
 
+        audioSource.PlayOneShot(deathSFX);
+
 		//call score manager to add enemy kill and add score
 		ScoreManager.AddScore(enemy.GetComponent<Enemy>().m_nScoreValue);
 		ScoreManager.AddEnemyKill();
@@ -147,6 +154,8 @@ public class EnemyManager : MonoBehaviour
 				}
 			}
 		}
+
+        audioSource.PlayOneShot(moveSFX);
 	}
 
 	private void MoveEnemiesDown()

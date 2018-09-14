@@ -23,7 +23,7 @@ public class GameOverUI : MonoBehaviour
 	void Awake ()
     {
         PrintAll();
-        CheckHiScore();
+        CheckHiScore(); // update hiScore if need be
     }
 	
 	// Update is called once per frame
@@ -44,7 +44,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// change the values of all relevant text fields in game over screen upon wakeup
     /// </summary>
     void PrintAll()
     {
@@ -57,7 +57,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "score"
     /// </summary>
     void PrintScore()
     {
@@ -66,7 +66,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "motherships destroyed"
     /// </summary>
     void PrintMothershipsDestroyed()
     {
@@ -80,7 +80,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "lives remaining"
     /// </summary>
     void PrintLivesRemaining()
     {
@@ -94,7 +94,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "accuracy"
     /// </summary>
     void PrintAccuracy()
     {
@@ -112,7 +112,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "multiplier"
     /// </summary>
     void PrintMultiplier()
     {
@@ -121,7 +121,7 @@ public class GameOverUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// changes the text value of UI element "total score"
     /// </summary>
     void PrintTotalScore()
     {

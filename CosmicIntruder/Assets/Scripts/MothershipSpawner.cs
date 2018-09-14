@@ -21,6 +21,10 @@ public class MothershipSpawner : MonoBehaviour
 
     //Mothership object to reuse
     private GameObject m_mothership;
+    
+    // access to main audio source and hover sound effect
+    public AudioSource audioSource;
+    public AudioClip hoverSFX;
 
     private void Start()
     {
@@ -65,6 +69,8 @@ public class MothershipSpawner : MonoBehaviour
             }
             //Set the motherships position
             m_mothership.transform.position = new Vector3(trueX, m_spawnHeight);
+
+            audioSource.PlayOneShot(hoverSFX);
         }
     }
 }

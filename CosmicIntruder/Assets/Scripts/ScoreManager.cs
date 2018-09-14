@@ -4,12 +4,6 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-struct HiScore
-{
-    public string name;
-    public int hiScore;
-}
-
 public class ScoreManager : MonoBehaviour
 {
     // main display information
@@ -95,12 +89,13 @@ public class ScoreManager : MonoBehaviour
     /// </summary>
     static public void LoseLife()
     {
-        lives--;
+        lives--; // lose life
 
+        // if no lives left...
         if (lives < 0)
         {
-            SceneManager.LoadScene("gameOver");
             lives = 0;
+            SceneManager.LoadScene("gameOver"); //... game over
         }
     }
 
@@ -122,7 +117,7 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// helper function which sets the number of player lives to zero, and loads game over scene
     /// </summary>
     static public void InstantDeath()
     {
@@ -189,14 +184,15 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// returns the number of shots the player has missed, essentially any shot
+    /// which hits the upper boarder
     /// </summary>
-    /// <returns></returns>
+    /// <returns>number of shots the player has missed</returns>
     static public int GetMissedShots()
     {
         return totalShotsMissed;
     }
-
+    
     /// <summary>
     /// increments the total number of fired shots by one
     /// </summary>
@@ -206,9 +202,9 @@ public class ScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 
+    /// returns the number of total shots fired
     /// </summary>
-    /// <returns></returns>
+    /// <returns>total shots fired by player</returns>
     static public int GetFiredShots()
     {
         return totalShotsFired;

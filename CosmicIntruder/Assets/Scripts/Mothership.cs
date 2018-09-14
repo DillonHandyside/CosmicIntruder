@@ -40,6 +40,7 @@ public class Mothership : MonoBehaviour
         //Get deactivated and sent far away
         transform.position = new Vector3(-999.0f, -999.0f);
         gameObject.SetActive(false);
+
     }
 
     private void FixedUpdate()

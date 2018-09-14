@@ -145,6 +145,9 @@ MonoBehaviour:
   m_fireDelay: 0.5
   m_bulletSpeed: 10
   m_bulletOffset: {x: 0, y: 1}
+  audioSource: {fileID: 0}
+  shootSFX: {fileID: 8300000, guid: b27185fb6e7ac92409906942cc07576d, type: 3}
+  deathSFX: {fileID: 8300000, guid: 8b64e1327b7688e47b4988995df68c2a, type: 3}
   m_bullet: {fileID: 1473664032717910, guid: 51d0a00c2be41524a9fa004559bc2c24, type: 2}
   m_poolAmount: 2
   m_color: {r: 0.89705884, g: 0.2836289, b: 0.2836289, a: 0}

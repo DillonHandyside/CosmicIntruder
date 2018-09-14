@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     //Players rigidbody
     private Rigidbody2D rb;
 
+    // player shoot audio clip
+    public AudioSource audioSource;
+    public AudioClip shootSFX;
+
     //Player internal object pool
     public GameObject m_bullet;
     public int m_poolAmount;
@@ -41,11 +45,11 @@ public class Player : MonoBehaviour
     public float m_hitStunInvincibilityDuration; // duration of invincibility in seconds
     public float m_hitStunFlashDuration; // how long the player model is hidden
     public float m_hitStunFlashDelay; // how long until the next flash
-    
-    private float m_hitStunGlobalTimer = 0.0f;
-    private float m_hitStunTimer = 0.0f;
-    private bool m_isInvincible = false;
-    private bool m_hitStunFlash = false;
+    // private variables for hit stun
+    private float m_hitStunGlobalTimer = 0.0f; // total run-time of hit stun
+    private float m_hitStunTimer = 0.0f; // timer used for determining when to toggle between visibilities
+    private bool m_isInvincible = false; // is invincible toggle
+    private bool m_hitStunFlash = false; // hit stun toggle used in conjunction with hit stun timer
 
 	// Use this for initialization
 	void Start ()
@@ -201,6 +205,9 @@ public class Player : MonoBehaviour
         top.GetComponent<PlayerBullet>().m_speed = new Vector2(_x, _y);
         //Activate it
         top.SetActive(true);
+
+        // play shoot SFX
+        audioSource.PlayOneShot(shootSFX);
 
         // total shots fired += 1
         ScoreManager.AddFiredShot();
