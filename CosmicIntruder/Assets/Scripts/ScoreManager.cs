@@ -12,6 +12,7 @@ struct HiScore
 
 public class ScoreManager : MonoBehaviour
 {
+    // main display information
     static int hiScore; // the absolute highest score
     static int score; // player's current score
     static int lives; // player's current lives
@@ -27,8 +28,8 @@ public class ScoreManager : MonoBehaviour
 	// Use this for initialization
 	void Awake ()
     {
-        ResetAll();
-        hiScore = FileIO.Load();
+        ResetAll(); // set all values to default upon scene load
+        hiScore = FileIO.Load(); // attempt to load hiScore
 	}
 	
 	// Update is called once per frame
@@ -56,15 +57,6 @@ public class ScoreManager : MonoBehaviour
     static public int GetHiScore()
     {
         return hiScore;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="newHiScore"></param>
-    static public void LoadHiScore(int newHiScore)
-    {
-        hiScore = newHiScore;
     }
 
     /// <summary>

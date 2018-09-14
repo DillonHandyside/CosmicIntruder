@@ -11,6 +11,9 @@ TagManager:
   - LeftTrigger
   - RightTrigger
   - EnemyBullet
+  - PlayButton
+  - MenuButton
+  - QuitButton
   layers:
   - Default
   - TransparentFX

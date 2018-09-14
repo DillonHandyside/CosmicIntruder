@@ -7,7 +7,6 @@ public class GameOverUI : MonoBehaviour
 {
     // multipliers
     public float accuracyMultiplier = 0.1f; // the scale factor of accuracy multiplier
-    public float enemyKillMultiplier = 0.1f; // the scale factor of enemy multiplier
     public float mothershipKillMultiplier = 0.5f; // the scale factor of mothership multiplier
     public float livesRemainingMultiplier = 0.1f; // the scale factor of lives remaining multiplier
     private float multiplierValue = 1.0f; // the final multiplier, should not fall below 1.0f
@@ -15,7 +14,6 @@ public class GameOverUI : MonoBehaviour
     // UI text fields to modify
     public Text score;
     public Text accuracy;
-    public Text enemiesDestroyed;
     public Text mothershipsDestroyed;
     public Text livesRemaining;
     public Text multiplier;
@@ -51,7 +49,6 @@ public class GameOverUI : MonoBehaviour
     void PrintAll()
     {
         PrintScore();
-        PrintEnemiesDestroyed();
         PrintMothershipsDestroyed();
         PrintAccuracy();
         PrintLivesRemaining();
@@ -66,20 +63,6 @@ public class GameOverUI : MonoBehaviour
     {
         // print
         score.text = ScoreManager.GetScore().ToString();
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    void PrintEnemiesDestroyed()
-    {
-        int enemyKills = ScoreManager.GetEnemyKills();
-
-        // print
-        enemiesDestroyed.text = enemyKills.ToString();
-
-        // add kills to multiplier
-        multiplierValue += enemyKills * enemyKillMultiplier;
     }
 
     /// <summary>
@@ -122,7 +105,7 @@ public class GameOverUI : MonoBehaviour
             acc = (float)(ScoreManager.GetFiredShots() - ScoreManager.GetMissedShots()) / (float)ScoreManager.GetFiredShots();
 
         // add accuracy to multiplier
-        multiplierValue += acc * accuracyMultiplier;
+        multiplierValue += Mathf.Exp(acc) - 1;
 
         // print in "0.00%" format
         accuracy.text = (acc * 100.0f).ToString("0.00") + "%";
@@ -134,7 +117,7 @@ public class GameOverUI : MonoBehaviour
     void PrintMultiplier()
     {
         // print in "0.00%" format
-        multiplier.text = multiplierValue.ToString("0.00");
+        multiplier.text = multiplierValue.ToString("0.00") + "x";
     }
 
     /// <summary>

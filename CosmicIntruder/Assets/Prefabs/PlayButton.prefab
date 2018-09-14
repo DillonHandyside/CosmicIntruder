@@ -39,10 +39,10 @@ GameObject:
   - component: {fileID: 33028054262311474}
   - component: {fileID: 23610664177789834}
   - component: {fileID: 61845055241818162}
-  - component: {fileID: 114111581219943216}
+  - component: {fileID: 114756644092971164}
   m_Layer: 0
   m_Name: PlayButton
-  m_TagString: Border
+  m_TagString: PlayButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,7 +195,7 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
---- !u!114 &114111581219943216
+--- !u!114 &114756644092971164
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -203,6 +203,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1466494857349954}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d179a8067723ed04aac75376d72408a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a557c7f8f506924fa8430f1c127aba3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

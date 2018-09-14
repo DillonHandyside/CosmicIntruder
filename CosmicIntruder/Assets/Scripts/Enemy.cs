@@ -56,6 +56,10 @@ public class Enemy : MonoBehaviour
 			m_bIsAlive = false;
 			gameObject.SetActive(false);
 		}
+        else if (collision.tag == "Border")
+        {
+            ScoreManager.InstantDeath();
+        }
 	}
 
 	public bool GetAlive()
